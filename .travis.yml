@@ -7,9 +7,6 @@ jobs:
     - stage: test
       name: "Testing the library"
       script: npm test
-    - stage: build
-      name: "Build the library"
-      script: npm run build
     - stage: coverage
       name: "Collect coverage report"
       script: jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
