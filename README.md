@@ -1,6 +1,7 @@
 # tsed-client-api-generator
 
 [![Build Status](https://travis-ci.com/x-via/tsed-client-api-generator.svg?branch=master)](https://travis-ci.com/x-via/tsed-client-api-generator)
+[![Known vulnerabilities](https://snyk.io/test/github/x-via/tsed-client-api-generator/badge.svg)](https://snyk.io/test/github/x-via/tsed-client-api-generator)
 
 <p style="text-align: center" align="center">
  <a href="https://tsed.io" target="_blank"><img src="https://tsed.io/tsed-og.png" width="200" alt="Ts.ED logo"/></a>
