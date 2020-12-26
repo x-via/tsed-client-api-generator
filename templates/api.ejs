@@ -1,0 +1,29 @@
+// AUTO GENERATED. DO NOT EDIT IT
+<% endpoints.forEach(function(endpoint) { %>
+export interface <%=endpoint.interfaceName -%> {
+<% endpoint.params.forEach(param => { -%>
+  <%=param.name %><%=param.required ? "" : "?" %>: <%=param.type %>;
+<% }); -%>
+}
+<% }); -%>
+
+export class <%=serviceName %> {
+<% endpoints.forEach(function(endpoint) { %>
+  <%=endpoint.name %>({ <%=endpoint.params.map(param => param.name).join(',') -%> }: <%=endpoint.interfaceName%>) {
+    return fetch(`<%=endpoint.path %>`<% if(endpoint.method !== "GET") { %>, {
+      method: '<%=endpoint.method%>',
+      headers: {
+        'content-type': 'application/json',
+        <%_endpoint.headerParams.forEach(headerParams => { -%>
+        <%=headerParams.name %>,
+        <%_ }); -%>
+      },
+      body: JSON.stringify({
+      <%_endpoint.bodyParams.forEach(bodyParam => { -%>
+        <%=bodyParam.name %>,
+      <%_ }); -%>
+      }),
+    }<% }; %>);
+  }
+<% }); -%>
+}
