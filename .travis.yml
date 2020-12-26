@@ -4,6 +4,9 @@ node_js:
 
 jobs:
   include:
+    - stage: test
+      name: "Testing the library"
+      script: npm test
     - stage: build
       name: "Build the library"
       script: npm run build

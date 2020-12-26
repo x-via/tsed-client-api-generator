@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc --build tsconfig.json",
     "test": "jest --coverage",
-    "release": "npx semantic-release"
+    "release": "npm run build && npx semantic-release"
   },
   "dependencies": {},
   "private": false,

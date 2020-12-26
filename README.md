@@ -1,5 +1,6 @@
 # tsed-client-api-generator
 
+[![npm version](https://badge.fury.io/js/tsed-client-api-generator.svg)](https://badge.fury.io/js/tsed-client-api-generator)
 [![Build Status](https://travis-ci.com/x-via/tsed-client-api-generator.svg?branch=master)](https://travis-ci.com/x-via/tsed-client-api-generator)
 [![Known vulnerabilities](https://snyk.io/test/github/x-via/tsed-client-api-generator/badge.svg)](https://snyk.io/test/github/x-via/tsed-client-api-generator)
 [![Coverage Status](https://coveralls.io/repos/github/x-via/tsed-client-api-generator/badge.svg)](https://coveralls.io/github/x-via/tsed-client-api-generator)
