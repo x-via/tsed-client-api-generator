@@ -7,6 +7,9 @@ jobs:
     - stage: build
       name: "Build the library"
       script: npm run build
+    - stage: coverage
+      name: "Collect coverage report"
+      script: jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
     - stage: deploy
       if: branch = master
       name: "Deploy to NPM"
