@@ -5,7 +5,7 @@
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
-    "build": "tsc --build tsconfig.json",
+    "build": "tsc --build tsconfig.json && npx cpx \"templates/*.ejs\" ./lib/templates",
     "test": "jest --coverage",
     "release": "npm run build && npx semantic-release"
   },
