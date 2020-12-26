@@ -1,13 +1,13 @@
 {
   "name": "tsed-client-api-generator",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "Automatically generates Typescript APIs from Ts.ED controllers",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
     "build": "tsc --build tsconfig.json",
     "test": "jest --coverage",
-    "release": "standard-version"
+    "release": "npx semantic-release"
   },
   "dependencies": {},
   "private": false,
@@ -22,7 +22,7 @@
     "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
-    "standard-version": "^9.0.0",
+    "semantic-release": "^17.3.0",
     "ts-jest": "^26.4.4",
     "tslint": "^6.1.3",
     "typescript": "^4.1.3"
@@ -41,5 +41,9 @@
   },
   "files": [
     "/lib"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/x-via/tsed-client-api-generator.git"
+  }
 }
