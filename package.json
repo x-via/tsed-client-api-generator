@@ -6,7 +6,7 @@
   "typings": "./lib/index.d.ts",
   "scripts": {
     "build": "tsc --build tsconfig.json",
-    "test": "jest --coverage && coveralls < coverage/lcov.info",
+    "test": "jest --coverage",
     "release": "standard-version"
   },
   "dependencies": {},
