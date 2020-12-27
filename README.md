@@ -13,6 +13,8 @@ This library automatically generates TypeScript client APIs based on your contro
 
 A package of Ts.ED framework. See website: https://tsed.io
 
+**This module requires TSED version > 6**
+
 ## Installation
 
 Before using the Client Api Generator, we have to install the [tsed-client-api-generator](https://www.npmjs.com/package/tsed-client-api-generator) module.
