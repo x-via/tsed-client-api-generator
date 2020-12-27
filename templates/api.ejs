@@ -1,15 +1,16 @@
 // AUTO GENERATED. DO NOT EDIT IT
-<% endpoints.forEach(function(endpoint) { %>
+<% endpoints.forEach(function(endpoint) { -%>
+<% if(endpoint.params.length) { -%>
 export interface <%=endpoint.interfaceName -%> {
 <% endpoint.params.forEach(param => { -%>
   <%=param.name %><%=param.required ? "" : "?" %>: <%=param.type %>;
 <% }); -%>
 }
+<% }; %>
 <% }); -%>
-
 export class <%=serviceName %> {
 <% endpoints.forEach(function(endpoint) { %>
-  <%=endpoint.name %>({ <%=endpoint.params.map(param => param.name).join(',') -%> }: <%=endpoint.interfaceName%>) {
+  <%=endpoint.name %>(<% if(endpoint.params.length) { -%>{ <%=endpoint.params.map(param => param.name).join(',') -%> }: <%=endpoint.interfaceName%><% }; %>) {
     return fetch(`<%=endpoint.path %>`<% if(endpoint.method !== "GET") { %>, {
       method: '<%=endpoint.method%>',
       headers: {
@@ -17,12 +18,12 @@ export class <%=serviceName %> {
         <%_endpoint.headerParams.forEach(headerParams => { -%>
         <%=headerParams.name %>,
         <%_ }); -%>
-      },
+      }<% if(endpoint.bodyParams.length) { -%>,
       body: JSON.stringify({
       <%_endpoint.bodyParams.forEach(bodyParam => { -%>
         <%=bodyParam.name %>,
       <%_ }); -%>
-      }),
+      }),<% }; %>
     }<% }; %>);
   }
 <% }); -%>
