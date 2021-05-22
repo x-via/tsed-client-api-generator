@@ -67,7 +67,7 @@ export class ClientApiService {
   ): EndpointModel[] {
     const endpointList: EndpointModel[] = [];
 
-    endpoints.forEach((endpoint) => {
+    endpoints.filter(this.isEndpointVisible).forEach((endpoint) => {
       const endpointBuilder = new SDKApiEndpointBuilder(endpoint, basePath);
 
       const name = endpointBuilder.name;
@@ -81,6 +81,10 @@ export class ClientApiService {
     });
 
     return endpointList;
+  }
+
+  isEndpointVisible(endpoint: EndpointMetadata) {
+    return endpoint.store.get("hidden") !== true;
   }
 
   async render(service: ServiceModel, templateFile: string, outputDir: string) {
