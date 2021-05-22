@@ -12,8 +12,8 @@
   "dependencies": {},
   "private": false,
   "devDependencies": {
-    "@tsed/common": "6.17.4",
-    "@tsed/schema": "6.17.4",
+    "@tsed/common": "^6.34.3",
+    "@tsed/schema": "^6.34.3",
     "@types/ejs": "^3.0.5",
     "@types/jest": "^26.0.19",
     "coveralls": "^3.1.0",

@@ -3,16 +3,19 @@ import {
   Controller,
   Get,
   HeaderParams,
+  MulterOptions,
+  MultipartFile,
   ParamTypes,
   PathParams,
   PlatformConfiguration,
+  PlatformMulterFile,
   PlatformTest,
   Post,
 } from "@tsed/common";
 import { ClientApiBuildParams, ClientApiService } from "./ClientApiService";
 import fs from "fs";
 import { ParamModel } from "../interfaces/ParamModel";
-import { Required } from "@tsed/schema";
+import { Required, Hidden } from "@tsed/schema";
 
 jest.mock("fs");
 jest.mock("ejs");
@@ -34,6 +37,21 @@ export class TestCtrl {
     @BodyParams("user") user: { name: string },
     @Required() @BodyParams("requiredParam") requiredParam: string,
     @HeaderParams("timestamp") timestamp: number
+  ): string {
+    return "";
+  }
+
+  @Post("/file")
+  @MulterOptions({ dest: "" })
+  private uploadFile(@MultipartFile("file") file: PlatformMulterFile): string {
+    return "";
+  }
+
+  @Post("/hidden")
+  @MulterOptions({ dest: "" })
+  @Hidden()
+  private hiddenApi(
+    @MultipartFile("hiddenParam") file: PlatformMulterFile
   ): string {
     return "";
   }
@@ -124,6 +142,12 @@ describe("SwaggerService", () => {
       it("should transform path parameters template string compatible", () => {
         const metadata = clientApiService.buildRoutes(params);
         expect(metadata[0].endpoints[0].path).toEqual("/test/${id}");
+      });
+      it("should not build hidden endpoints", () => {
+        const metadata = clientApiService.buildRoutes(params);
+        expect(
+          metadata[0].endpoints.find((e) => e.name === "hiddenApi")
+        ).toBeFalsy();
       });
 
       describe("parameters", () => {
