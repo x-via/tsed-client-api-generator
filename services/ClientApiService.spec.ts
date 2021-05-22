@@ -41,12 +41,6 @@ export class TestCtrl {
     return "";
   }
 
-  @Post("/file")
-  @MulterOptions({ dest: "" })
-  private uploadFile(@MultipartFile("file") file: PlatformMulterFile): string {
-    return "";
-  }
-
   @Post("/hidden")
   @MulterOptions({ dest: "" })
   @Hidden()
