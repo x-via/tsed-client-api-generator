@@ -1,4 +1,4 @@
-import { EndpointMetadata, PathParamsType } from "@tsed/common";
+import { EndpointMetadata } from "@tsed/common";
 import { EndpointModel } from "../interfaces/EndpointModel";
 import { SDKApiParamsBuilder } from "./SDKApiParamsBuilder";
 
@@ -55,7 +55,7 @@ export class SDKApiEndpointBuilder {
     return method.toUpperCase();
   }
 
-  private toPathString(path: PathParamsType) {
+  private toPathString(path: string | RegExp) {
     if (path instanceof RegExp) {
       path = path
         .toString()
