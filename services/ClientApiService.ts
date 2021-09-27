@@ -42,10 +42,10 @@ export class ClientApiService {
   }
 
   buildRoutes(params: ClientApiBuildParams): ServiceModel[] {
-    return this.platform.routes.map(({ provider }) => {
+    return this.platform.getMountedControllers().map(({ provider, route }) => {
       const serviceBuilder = new SDKApiServiceBuilder(
         provider.instance.constructor.name,
-        provider.path,
+        route,
         params?.controllerNameProvider
       );
 
