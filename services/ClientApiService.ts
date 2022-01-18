@@ -13,6 +13,7 @@ import chalk from "chalk";
 import path from "path";
 import { ServiceModel } from "../interfaces/ServiceModel";
 import { EndpointModel } from "../interfaces/EndpointModel";
+import { format } from "prettier";
 
 export interface ClientApiBuildParams {
   controllerNameProvider?: (name: string) => string;
@@ -90,7 +91,16 @@ export class ClientApiService {
   async render(service: ServiceModel, templateFile: string, outputDir: string) {
     const rendered = await ejs.renderFile(templateFile, service);
     const filename = `${service.serviceName}.ts`;
-    this.writeToFile(path.join(outputDir, filename), rendered);
+
+    console.log(rendered);
+
+    const styled = format(rendered, {
+      parser: "typescript",
+    });
+
+    console.log(styled);
+
+    this.writeToFile(path.join(outputDir, filename), styled);
   }
 
   async renderIndex(metadata: ServiceModel[], outputDir: string) {

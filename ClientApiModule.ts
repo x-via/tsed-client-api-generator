@@ -10,7 +10,7 @@ import {
 import { ClientApiSettings } from "./interfaces/ClientApiSettings";
 import { ClientApiService } from "./services/ClientApiService";
 import path from "path";
-import chalk = require("chalk");
+import chalk from "chalk";
 
 export const Messages = {
   REMINDER_DISABLE_IN_PRODUCTION: chalk.yellow(
