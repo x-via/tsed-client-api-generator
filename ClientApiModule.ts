@@ -10,12 +10,10 @@ import {
 import { ClientApiSettings } from "./interfaces/ClientApiSettings";
 import { ClientApiService } from "./services/ClientApiService";
 import path from "path";
-import chalk = require("chalk");
 
 export const Messages = {
-  REMINDER_DISABLE_IN_PRODUCTION: chalk.yellow(
-    "Client API Generation is enabled. Don't forget to disable it in production!"
-  ),
+  REMINDER_DISABLE_IN_PRODUCTION:
+    "Client API Generation is enabled. Don't forget to disable it in production!",
   UNDEFINED_OUTPUT_DIR: (dir: string) =>
     `No output dir specified, generating the client api in '${dir}'`,
 };

@@ -9,7 +9,6 @@ import { SDKApiEndpointBuilder } from "../builder/SDKApiEndpointBuilder";
 import { SDKApiServiceBuilder } from "../builder/SDKApiServiceBuilder";
 import ejs from "ejs";
 import fs from "fs";
-import chalk from "chalk";
 import path from "path";
 import { ServiceModel } from "../interfaces/ServiceModel";
 import { EndpointModel } from "../interfaces/EndpointModel";
@@ -72,9 +71,7 @@ export class ClientApiService {
 
       const name = endpointBuilder.name;
 
-      this.injectorService.logger.debug(
-        ` -> Processing endpoint ${chalk.bold(name)}`
-      );
+      this.injectorService.logger.debug(` -> Processing endpoint ${name}`);
 
       const methods: EndpointModel[] = endpointBuilder.pathMethods;
       methods.forEach((m) => endpointList.push(m));
